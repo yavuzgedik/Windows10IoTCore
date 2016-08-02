@@ -28,8 +28,6 @@ namespace TouchScreenButton
         {
             this.InitializeComponent();
         }
-
-
         private void button_Tapped(object sender, TappedRoutedEventArgs e)
         {
             int x = Convert.ToInt32(page.ActualWidth);
