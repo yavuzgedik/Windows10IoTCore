@@ -22,9 +22,33 @@ namespace Timers
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        DispatcherTimer timer = new DispatcherTimer();
+        bool click = false;
         public MainPage()
         {
             this.InitializeComponent();
+
+            timer.Interval = TimeSpan.FromMilliseconds(10000);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+        private void Timer_Tick(object sender, object e)
+        {
+            if (click)
+            {
+                button.Content = "Click";
+            }
+            else
+            {
+                button.Content = "Unclick";
+            }
+
+            timer.Stop();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            click = true;
         }
     }
 }
